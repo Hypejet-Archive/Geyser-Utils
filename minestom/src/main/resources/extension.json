@@ -1,0 +1,5 @@
+{
+  "entrypoint": "me.heroostech.floodgate.MinestomFloodgate",
+  "name": "minestomfloodgate",
+  "version": "v1.0.0"
+}
