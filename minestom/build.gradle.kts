@@ -26,9 +26,5 @@ val jar by tasks.getting(Jar::class) {
 }
 
 tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
-<<<<<<< HEAD
-    archiveFileName.set("FloodgateVelocity-Minestom")
-=======
     archiveFileName.set("FloodgateVelocity-Minestom.jar")
->>>>>>> b1e02cd (✏ Add Shadow Jar File Name)
 }
