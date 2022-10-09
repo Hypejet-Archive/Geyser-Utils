@@ -27,3 +27,7 @@ val jar by tasks.getting(Jar::class) {
         attributes ["Multi-Release"] = true
     }
 }
+
+tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+    archiveFileName.set("Floodgate-Minestom")
+}
