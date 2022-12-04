@@ -12,7 +12,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Floodgate-Minestom"
+rootProject.name = "Geyser-Utils"
 
 include("api")
 include("velocity")

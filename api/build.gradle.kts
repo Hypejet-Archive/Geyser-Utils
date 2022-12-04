@@ -3,8 +3,8 @@ plugins {
     `maven-publish`
 }
 
-group = "me.heroostech.floodgate"
-version = "v1.0.0"
+group = "me.heroostech.geyserutils"
+version = "2.0"
 
 repositories {
     mavenCentral()
@@ -21,10 +21,10 @@ dependencies {
 
 publishing {
     publications {
-        create<MavenPublication>("minestom") {
-            groupId = "me.heroostech.floodgate"
-            artifactId = "MinestomFloodgate"
-            version = "v1.0.0"
+        create<MavenPublication>("maven") {
+            group = "me.heroostech.geyserutils"
+            artifactId = "Geyser-Utils"
+            version = "2.0"
         }
     }
 }
