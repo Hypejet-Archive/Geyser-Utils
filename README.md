@@ -1,9 +1,14 @@
-# <h3 align="center">👨‍🔧 Floodgate-Minestom</h3>
+# <h3 align="center">👨‍🔧 Geyser-Utils</h3>
   <p align="center">
-    <a href="https://github.com/CityWideMC/Floodgate-Minestom/issues">Report Bug</a>
+    <a href="https://github.com/CityWideMC/Geyser-Utils/issues">Report Bug</a>
     •
-    <a href="https://github.com/CityWideMC/Floodgate-Minestom/pulls">Create PR</a>
+    <a href="https://github.com/CityWideMC/Geyser-Utils/pulls">Create PR</a>
   </p>
 
 # About the project
-Floodgate-Minestom is a library for minestom that allows using Floodgate API's methods on minestom.
+Geyser-Utils is a tool that helps with using floodgate and geyser on minestom.
+
+# Features:
+- Teleporting between instances and proxy servers for bedrock players.
+- Bedrock forms with custom API.
+- Other bedrock features.
