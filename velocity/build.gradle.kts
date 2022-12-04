@@ -3,8 +3,8 @@ plugins {
     id ("com.github.johnrengelman.shadow") version "7.1.0"
 }
 
-group = "me.heroostech.floodgate"
-version = "v1.0.0"
+group = "me.heroostech.geyserutils"
+version = "2.0"
 
 repositories {
     mavenCentral()
