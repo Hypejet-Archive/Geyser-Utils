@@ -3,6 +3,7 @@ package me.heroostech.geyserutils.minestom.unsafe;
 import lombok.SneakyThrows;
 import me.heroostech.geyserutils.unsafe.Unsafe;
 import net.minestom.server.MinecraftServer;
+import net.minestom.server.entity.Player;
 
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
@@ -19,12 +20,11 @@ public class UnsafeImpl implements Unsafe {
     @SneakyThrows
     @Override
     public void sendPacket(UUID bedrockPlayer, int packetId, byte[] packetData) {
-        //TODO: HANDLE ON PROXY
-        var player = MinecraftServer.getConnectionManager().getPlayer(bedrockPlayer);
+        Player player = MinecraftServer.getConnectionManager().getPlayer(bedrockPlayer);
         if(player == null) return;
 
-        var byteStream = new ByteArrayOutputStream();
-        var stream = new ObjectOutputStream(byteStream);
+        ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+        ObjectOutputStream stream = new ObjectOutputStream(byteStream);
 
         stream.writeInt(packetId);
         stream.writeObject(packetData);

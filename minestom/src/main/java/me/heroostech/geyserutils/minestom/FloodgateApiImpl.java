@@ -6,6 +6,7 @@ import me.heroostech.geyserutils.player.FloodgatePlayer;
 import me.heroostech.geyserutils.minestom.unsafe.UnsafeImpl;
 import me.heroostech.geyserutils.unsafe.Unsafe;
 import net.minestom.server.MinecraftServer;
+import net.minestom.server.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.ByteArrayOutputStream;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 public class FloodgateApiImpl implements FloodgateApi {
@@ -28,7 +30,7 @@ public class FloodgateApiImpl implements FloodgateApi {
      */
     @Override
     public Collection<FloodgatePlayer> getPlayers() {
-        var list = new ArrayList<FloodgatePlayer>();
+        List<FloodgatePlayer> list = new ArrayList<>();
         GeyserUtils.getInstance().getPlayers().forEach((player, floodgatePlayer) -> list.add(floodgatePlayer));
         return list;
     }
@@ -49,7 +51,7 @@ public class FloodgateApiImpl implements FloodgateApi {
      */
     @Override
     public boolean isFloodgatePlayer(UUID uuid) {
-        var player = MinecraftServer.getConnectionManager().getPlayer(uuid);
+        Player player = MinecraftServer.getConnectionManager().getPlayer(uuid);
         return GeyserUtils.getInstance().getPlayers().containsKey(player);
     }
 
@@ -61,7 +63,7 @@ public class FloodgateApiImpl implements FloodgateApi {
      */
     @Override
     public FloodgatePlayer getPlayer(UUID uuid) {
-        var player = MinecraftServer.getConnectionManager().getPlayer(uuid);
+        Player player = MinecraftServer.getConnectionManager().getPlayer(uuid);
         return GeyserUtils.getInstance().getPlayers().get(player);
     }
 
@@ -81,16 +83,16 @@ public class FloodgateApiImpl implements FloodgateApi {
     @Override
     public boolean sendForm(Form form) {
         try {
-            var player = MinecraftServer.getConnectionManager().getPlayer(form.player());
-            var byteStream = new ByteArrayOutputStream();
-            var stream = new ObjectOutputStream(byteStream);
+            Player player = MinecraftServer.getConnectionManager().getPlayer(form.player());
+            ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+            ObjectOutputStream stream = new ObjectOutputStream(byteStream);
 
             if (player == null) return false;
 
             stream.writeObject(form);
             stream.close();
 
-            var bytes = byteStream.toByteArray();
+            byte[] bytes = byteStream.toByteArray();
             byteStream.close();
 
             player.sendPluginMessage("geyserutils:form", bytes);

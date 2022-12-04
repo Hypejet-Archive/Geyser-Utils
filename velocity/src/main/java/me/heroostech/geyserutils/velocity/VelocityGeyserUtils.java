@@ -10,6 +10,7 @@ import com.velocitypowered.api.proxy.messages.MinecraftChannelIdentifier;
 import lombok.Getter;
 import me.heroostech.geyserutils.velocity.listener.FloodgatePlayerSetup;
 import me.heroostech.geyserutils.velocity.listener.FormListener;
+import me.heroostech.geyserutils.velocity.listener.PacketListener;
 import org.slf4j.Logger;
 
 @Plugin(id = "geyserutils", name = "GeyserUtils",
@@ -33,7 +34,9 @@ public class VelocityGeyserUtils {
         this.server.getChannelRegistrar().register(MinecraftChannelIdentifier.create("geyserutils", "join"));
         this.server.getChannelRegistrar().register(MinecraftChannelIdentifier.create("geyserutils", "player"));
         this.server.getChannelRegistrar().register(MinecraftChannelIdentifier.create("geyserutils", "response"));
+        this.server.getChannelRegistrar().register(MinecraftChannelIdentifier.create("geyserutils", "packet"));
         this.server.getEventManager().register(this, new FormListener());
         this.server.getEventManager().register(this, new FloodgatePlayerSetup());
+        this.server.getEventManager().register(this, new PacketListener());
     }
 }
