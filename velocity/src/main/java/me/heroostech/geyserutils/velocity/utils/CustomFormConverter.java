@@ -3,7 +3,7 @@ package me.heroostech.geyserutils.velocity.utils;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ServerConnection;
 import com.velocitypowered.api.proxy.messages.MinecraftChannelIdentifier;
-import me.heroostech.geyserutils.velocity.VelocityFloodgate;
+import me.heroostech.geyserutils.velocity.VelocityGeyserUtils;
 import org.geysermc.cumulus.component.*;
 import org.geysermc.cumulus.form.CustomForm;
 import org.geysermc.cumulus.response.CustomFormResponse;
@@ -27,7 +27,7 @@ public class CustomFormConverter {
         componentConvert(form.getContent()).forEach(f::component);
         f.validResultHandler((aForm, response) -> {
             try {
-                Optional<Player> player = VelocityFloodgate.instance.getServer().getPlayer(form.player());
+                Optional<Player> player = VelocityGeyserUtils.instance.getServer().getPlayer(form.player());
                 if (player.isPresent()) {
                     Player pl = player.get();
 
