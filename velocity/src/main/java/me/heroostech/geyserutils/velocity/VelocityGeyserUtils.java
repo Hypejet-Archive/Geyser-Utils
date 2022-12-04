@@ -14,14 +14,14 @@ import org.slf4j.Logger;
 
 @Plugin(id = "geyserutils", name = "GeyserUtils",
         version = "2.0", dependencies = {@Dependency(id = "floodgate")})
-public class VelocityFloodgate {
+public class VelocityGeyserUtils {
 
     @Getter private final ProxyServer server;
     @Getter private final Logger logger;
-    public static VelocityFloodgate instance;
+    public static VelocityGeyserUtils instance;
 
     @Inject
-    public VelocityFloodgate(ProxyServer server, Logger logger) {
+    public VelocityGeyserUtils(ProxyServer server, Logger logger) {
         this.server = server;
         this.logger = logger;
         instance = this;

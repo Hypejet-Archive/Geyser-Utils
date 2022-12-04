@@ -29,5 +29,5 @@ val jar by tasks.getting(Jar::class) {
 }
 
 tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
-    archiveFileName.set("Floodgate-Minestom.jar")
+    archiveFileName.set("GeyserUtils-Velocity.jar")
 }
