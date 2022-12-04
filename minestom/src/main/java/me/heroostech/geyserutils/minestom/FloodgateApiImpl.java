@@ -79,9 +79,9 @@ public class FloodgateApiImpl implements FloodgateApi {
     }
 
     @Override
-    public boolean sendForm(UUID uuid, Form form) {
+    public boolean sendForm(Form form) {
         try {
-            var player = MinecraftServer.getConnectionManager().getPlayer(uuid);
+            var player = MinecraftServer.getConnectionManager().getPlayer(form.player());
             var byteStream = new ByteArrayOutputStream();
             var stream = new ObjectOutputStream(byteStream);
 

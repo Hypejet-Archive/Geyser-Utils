@@ -33,7 +33,7 @@ public final class FormResponseListener {
             Event eventToCall;
 
             switch (form.type()) {
-                case "custom" -> eventToCall = new CustomFormResponse(player, GeyserUtils.getInstance().getPlayers().get(player), (CustomForm) form, (Object[]) stream.readObject(), -1);
+                case "custom" -> eventToCall = new CustomFormResponse(player, GeyserUtils.getInstance().getPlayers().get(player), (CustomForm) form, (Object[]) stream.readObject());
                 case "modal" -> eventToCall = new ModalFormResponse(player, GeyserUtils.getInstance().getPlayers().get(player), (ModalForm) form, stream.readUTF());
                 case "simple" -> eventToCall = new SimpleFormResponse(player, GeyserUtils.getInstance().getPlayers().get(player), (SimpleForm) form, (ButtonComponent) stream.readObject());
                 default -> throw new UnsupportedOperationException();

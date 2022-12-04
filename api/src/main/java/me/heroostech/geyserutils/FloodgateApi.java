@@ -53,7 +53,7 @@ public interface FloodgateApi {
      */
     boolean isFloodgateId(UUID uuid);
 
-    boolean sendForm(UUID uuid, Form form);
+    boolean sendForm(Form form);
 
     @NonNull Unsafe unsafe();
 }

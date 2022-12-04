@@ -25,7 +25,7 @@ public class SimpleFormConverter {
         convertButtons(form.buttons()).forEach(buttonComponent -> f.button(buttonComponent.text(), buttonComponent.image()));
         f.validResultHandler((aForm, response) -> {
             try {
-                Optional<Player> player = VelocityFloodgate.INSTANCE.server().getPlayer(form.player());
+                Optional<Player> player = VelocityFloodgate.instance.getServer().getPlayer(form.player());
                 if (player.isPresent()) {
                     Player pl = player.get();
 

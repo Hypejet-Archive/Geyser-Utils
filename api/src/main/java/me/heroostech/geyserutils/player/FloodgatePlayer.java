@@ -67,7 +67,7 @@ public interface FloodgatePlayer {
     String getOs();
 
     default boolean sendForm(Form form) {
-        return FloodgateApi.getInstance().sendForm(getCorrectUniqueId(), form);
+        return FloodgateApi.getInstance().sendForm(form);
     }
 
     /**

@@ -20,7 +20,7 @@ public class ModalFormConverter {
         f.button2(form.button2());
         f.validResultHandler((aForm, response) -> {
             try {
-                Optional<Player> player = VelocityFloodgate.INSTANCE.server().getPlayer(form.player());
+                Optional<Player> player = VelocityFloodgate.instance.getServer().getPlayer(form.player());
                 if (player.isPresent()) {
                     Player pl = player.get();
 

@@ -7,19 +7,24 @@ import com.velocitypowered.api.plugin.Dependency;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.messages.MinecraftChannelIdentifier;
+import lombok.Getter;
 import me.heroostech.geyserutils.velocity.listener.FloodgatePlayerSetup;
 import me.heroostech.geyserutils.velocity.listener.FormListener;
 import org.slf4j.Logger;
 
-@Plugin(id = "minestomfloodgate", name = "MinestomFloodgate",
-        version = "v1.0.0", dependencies = {@Dependency(id = "floodgate")})
-public record VelocityFloodgate(ProxyServer server, Logger logger) {
+@Plugin(id = "geyserutils", name = "GeyserUtils",
+        version = "2.0", dependencies = {@Dependency(id = "floodgate")})
+public class VelocityFloodgate {
 
-    public static VelocityFloodgate INSTANCE;
+    @Getter private final ProxyServer server;
+    @Getter private final Logger logger;
+    public static VelocityFloodgate instance;
 
     @Inject
-    public VelocityFloodgate {
-        INSTANCE = this;
+    public VelocityFloodgate(ProxyServer server, Logger logger) {
+        this.server = server;
+        this.logger = logger;
+        instance = this;
     }
 
     @Subscribe

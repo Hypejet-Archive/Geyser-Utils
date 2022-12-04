@@ -22,11 +22,12 @@ public class CustomFormConverter {
     public static CustomForm convert(me.heroostech.geyserutils.forms.CustomForm form) {
         CustomForm.Builder f = CustomForm.builder();
         f.title(form.title());
-        f.icon(FormImage.Type.valueOf(form.icon().type().getName()), form.icon().data());
-        componentConvert(form.content()).forEach(f::component);
+        if(form.getIcon() != null)
+            f.icon(FormImage.Type.valueOf(form.getIcon().type().getName().toUpperCase()), form.getIcon().data());
+        componentConvert(form.getContent()).forEach(f::component);
         f.validResultHandler((aForm, response) -> {
             try {
-                Optional<Player> player = VelocityFloodgate.INSTANCE.server().getPlayer(form.player());
+                Optional<Player> player = VelocityFloodgate.instance.getServer().getPlayer(form.player());
                 if (player.isPresent()) {
                     Player pl = player.get();
 
