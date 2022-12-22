@@ -4,6 +4,7 @@ import net.minestom.server.event.player.PlayerSpawnEvent;
 
 public final class PlayerSpawnListener {
     public static void listener(PlayerSpawnEvent event) {
-        event.getPlayer().sendPluginMessage("geyserutils:join", new byte[0]);
+        if(event.isFirstSpawn())
+            event.getPlayer().sendPluginMessage("geyserutils:join", new byte[0]);
     }
 }

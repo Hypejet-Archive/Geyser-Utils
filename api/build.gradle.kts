@@ -23,8 +23,9 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             group = "me.heroostech.geyserutils"
-            artifactId = "Geyser-Utils"
+            artifactId = "GeyserUtils"
             version = "2.0"
+            from(components["java"])
         }
     }
 }
