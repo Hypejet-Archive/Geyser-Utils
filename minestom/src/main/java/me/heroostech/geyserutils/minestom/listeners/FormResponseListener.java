@@ -9,6 +9,7 @@ import me.heroostech.geyserutils.forms.response.CustomFormResponse;
 import me.heroostech.geyserutils.forms.response.ModalFormResponse;
 import me.heroostech.geyserutils.forms.response.SimpleFormResponse;
 import me.heroostech.geyserutils.minestom.GeyserUtils;
+import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.Event;
 import net.minestom.server.event.player.PlayerPluginMessageEvent;
@@ -39,7 +40,7 @@ public final class FormResponseListener {
                 default -> throw new UnsupportedOperationException();
             }
 
-            GeyserUtils.getInstance().getEventNode().call(eventToCall);
+            MinecraftServer.getGlobalEventHandler().call(eventToCall);
 
             stream.close();
         } catch (IOException | ClassNotFoundException e) {
