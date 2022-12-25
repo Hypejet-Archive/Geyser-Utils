@@ -42,7 +42,7 @@ public class SimpleFormConverter {
 
                     Optional<ServerConnection> server = pl.getCurrentServer();
 
-                    server.ifPresent(serverConnection -> serverConnection.sendPluginMessage(MinecraftChannelIdentifier.from("minestomfloodgate:formresponse"), byteStream.toByteArray()));
+                    server.ifPresent(serverConnection -> serverConnection.sendPluginMessage(MinecraftChannelIdentifier.from("geyserutils:response"), byteStream.toByteArray()));
 
                     byteStream.close();
                 }
@@ -66,7 +66,7 @@ public class SimpleFormConverter {
     }
 
     private static FormImage convertImage(me.heroostech.geyserutils.util.FormImage image) {
-        return FormImage.of(FormImage.Type.valueOf(image.type().getName()), image.data());
+        return FormImage.of(FormImage.Type.valueOf(image.type().getName().toUpperCase()), image.data());
     }
 
     private static me.heroostech.geyserutils.util.FormImage convertImage(FormImage image) {
